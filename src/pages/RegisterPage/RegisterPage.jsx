@@ -6,6 +6,7 @@ import {warningMessageRegister} from '../../utils/utils'
 
 export default function RegisterPage() {
     const error = useSelector(state => state.user.error);
+    console.log("RegisterPage", error);
     const dispatch = useDispatch();
     const inputIdName = nanoid();
     const inputIdEmail = nanoid();
@@ -24,16 +25,16 @@ export default function RegisterPage() {
         
         form.reset();
     }
-    useEffect(() => {   
-       if(error === "rejected") {
-        warningMessageRegister()
-        }
-    },[error])
-      
-   
-      
 
-    return (<div>
+    useEffect(() => {
+        if (error) {
+            warningMessageRegister()  
+         }
+      },[error])
+
+    return (
+    <>
+        <div>
             <form onSubmit={onCreateUserAccount}>
                 <label htmlFor={inputIdName}>Username</label>
                 <input
@@ -58,5 +59,7 @@ export default function RegisterPage() {
                 <br />
                 <button type="submit">Register</button>
             </form>
-        </div>)
+        </div>
+    </>
+    )
     }

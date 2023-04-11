@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { nanoid } from "nanoid"
 import { useDispatch,useSelector } from "react-redux";
 import { logIn } from "redux/user/operation";
@@ -6,6 +6,8 @@ import { warningMessageLogin } from "utils/utils";
 
 export default function LoginPage() {
     const error = useSelector(state => state.user.error);
+   
+    console.log("LoginPage",error);
     const inputIdEmail = nanoid();
     const inputIdPassword = nanoid();
     const dispatch = useDispatch();
@@ -13,8 +15,7 @@ export default function LoginPage() {
     const onGetUserAccount = (e) => {
         e.preventDefault();
         const form = e.currentTarget;
-        dispatch(logIn(
-            {
+        dispatch(logIn({
             email: form.elements.email.value,
             password: form.elements.password.value
             }))
@@ -22,10 +23,11 @@ export default function LoginPage() {
         form.reset();
     }
     
-    useEffect(() => {
-        if (error === "rejected") {
-            warningMessageLogin();
+    useEffect(() => { 
+        if (error) {
+            warningMessageLogin();      
         }
+      
     },[error])
 
 
@@ -47,6 +49,6 @@ export default function LoginPage() {
         </input>
         <br/>       
     <button type="submit">Log In</button>        
-    </form>
+    </form>    
     </>)
 }

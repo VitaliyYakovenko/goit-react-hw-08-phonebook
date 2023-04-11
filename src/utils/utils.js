@@ -11,6 +11,6 @@ export function warningMessageLogin() {
 };
 
 
-// export function successMessage(name) {
-//     Notiflix.Notify.success(`Welcome, ${name}!`);
-// }
+// // export function successMessage(name) {
+// //     Notiflix.Notify.success(`Welcome, ${name}!`);
+// // }

@@ -1,17 +1,15 @@
 import { nanoid } from 'nanoid';
-// import { useState } from "react"
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import { register } from 'redux/user/operation';
+import {warningMessageRegister} from '../../utils/utils'
 
 export default function RegisterPage() {
+    const error = useSelector(state => state.user.error);
     const dispatch = useDispatch();
-
     const inputIdName = nanoid();
     const inputIdEmail = nanoid();
     const inputIdPassword = nanoid();
- 
-    
-
 
     const onCreateUserAccount = (e) => {
         e.preventDefault();
@@ -25,11 +23,17 @@ export default function RegisterPage() {
         }))
         
         form.reset();
+    }
+    useEffect(() => {   
+       if(error === "rejected") {
+        warningMessageRegister()
         }
+    },[error])
       
+   
       
 
-        return (<div>
+    return (<div>
             <form onSubmit={onCreateUserAccount}>
                 <label htmlFor={inputIdName}>Username</label>
                 <input

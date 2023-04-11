@@ -9,17 +9,17 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   
-
   <Provider store={store}>
   <PersistGate persistor={persistor}>
   <BrowserRouter basename="/goit-react-hw-08-phonebook">
     <App />
-    </BrowserRouter>
-   </PersistGate>  
+  </BrowserRouter>
+  </PersistGate>  
   </Provider>
-  
+
 );
 
+//  <React.StrictMode></React.StrictMode>
 
 // alex666
 // alex666@gmail.com

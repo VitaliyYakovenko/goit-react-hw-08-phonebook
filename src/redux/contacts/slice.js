@@ -11,6 +11,9 @@ export const createContacts = createSlice({
         error: null,
     },
     extraReducers: {
+        [fetchContacts.pending](state) {
+            state.isLoading = true;
+        },
         [fetchContacts.fulfilled](state, action) {
             state.isLoading = false;
             state.error = null;

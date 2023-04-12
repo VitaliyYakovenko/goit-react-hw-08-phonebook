@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useDispatch} from 'react-redux';
 import { register } from 'redux/user/operation';
-
+import {Box, TextField} from "@mui/material";
 
 export default function RegisterPage() {
     
@@ -27,7 +27,12 @@ export default function RegisterPage() {
    
     return (
     <>
-        <div>
+    <Box style={{
+      marginTop: 20,
+      marginLeft: "auto",
+      marginRight: "auto",
+      width: 400
+            }}>
             <form onSubmit={onCreateUserAccount}>
                 <label htmlFor={inputIdName}>Username</label>
                 <input
@@ -52,7 +57,6 @@ export default function RegisterPage() {
                 <br />
                 <button type="submit">Register</button>
             </form>
-        </div>
-    </>
-    )
-    }
+    </Box>
+    </>)
+}

@@ -8,7 +8,8 @@ import  App  from 'components/App';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  
+
+  <React.StrictMode>
   <Provider store={store}>
   <PersistGate persistor={persistor}>
   <BrowserRouter basename="/goit-react-hw-08-phonebook">
@@ -16,15 +17,23 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </BrowserRouter>
   </PersistGate>  
   </Provider>
+  </React.StrictMode>
 
 );
 
-//  <React.StrictMode></React.StrictMode>
+
 
 // alex666
 // alex666@gmail.com
 // alex666
 
+//alex1111
+//alex1111@gmail.com
+//alex1111
+
+//alex2222
+//alex2222@gmail.com
+//alex2222
 
 //hello555
 //hello555@gmail.com 

@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 import { useDispatch} from 'react-redux';
 import { register } from 'redux/user/operation';
-import {Box, TextField} from "@mui/material";
-
+import {Box} from "@mui/material";
+// TextField
 export default function RegisterPage() {
     
     const dispatch = useDispatch();

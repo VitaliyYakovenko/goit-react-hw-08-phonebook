@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "redux/user/operation";
 
-export default function UserInform() {
-    const userName = useSelector(state => state.user.user.name);
+export default function UserMenu() {
+    const userEmail = useSelector(state => state.user.user.email);
     const dispatch = useDispatch();
 
     const onLogout = () => {
@@ -11,7 +11,7 @@ export default function UserInform() {
 
     return (
     <>
-    <div>User Inform {userName}</div>
+    <div>User email {userEmail}</div>
     <button onClick={onLogout} type="button">Logout</button>        
     </>     
     

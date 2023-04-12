@@ -1,5 +1,7 @@
+import { warningMessageLogin, warningMessageRegister} from 'utils/utils';
 import axios from 'axios';
 import { createAsyncThunk } from "@reduxjs/toolkit";;
+
 
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
@@ -21,10 +23,10 @@ export const register = createAsyncThunk(
         try {
             const res = await axios.post('/users/signup', credentials);
             setAuthHeader(res.data.token);
-            console.log(res.data);
             return res.data;
         } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
+          return (warningMessageRegister(),
+            thunkAPI.rejectWithValue(error.message));
         }
     }
 )
@@ -41,7 +43,8 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return ( warningMessageLogin(),
+        thunkAPI.rejectWithValue(error.message));
     }   
   }
 );
@@ -64,7 +67,6 @@ export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const token = thunkAPI.getState().user.token;
-    
 
     if (!token) {
       return thunkAPI.rejectWithValue('Unable to fetch user');

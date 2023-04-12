@@ -1,12 +1,10 @@
 import { nanoid } from 'nanoid';
-import { useEffect } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { register } from 'redux/user/operation';
-import {warningMessageRegister} from '../../utils/utils'
+
 
 export default function RegisterPage() {
-    const error = useSelector(state => state.user.error);
-    console.log("RegisterPage", error);
+    
     const dispatch = useDispatch();
     const inputIdName = nanoid();
     const inputIdEmail = nanoid();
@@ -26,12 +24,7 @@ export default function RegisterPage() {
         form.reset();
     }
 
-    useEffect(() => {
-        if (error) {
-            warningMessageRegister()  
-         }
-      },[error])
-
+   
     return (
     <>
         <div>

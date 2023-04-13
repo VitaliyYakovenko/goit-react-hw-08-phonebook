@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addContacts } from "redux/contacts/operation";
-import {TextField, Button} from "@mui/material";
+import { TextField, Button } from "@mui/material";
+import { warningMessageContacts } from "utils/utils";
 
 
 export default function ContactForm() {
@@ -30,7 +31,7 @@ export default function ContactForm() {
         e.preventDefault();
 
         if (contacts.find(contact => contact.name === name)) {
-        alert(`${name} is already in contacts.`);
+         warningMessageContacts(name);
          reset();    
          return;
         };

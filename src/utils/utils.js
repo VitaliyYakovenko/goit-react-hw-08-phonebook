@@ -10,3 +10,6 @@ export function warningMessageLogin() {
     Notiflix.Notify.failure("Email or password entered incorrectly");
 };
 
+export function warningMessageContacts(name) {
+    Notiflix.Notify.failure(`${name} is already in contacts.`);
+};

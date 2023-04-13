@@ -1,14 +1,10 @@
-import { nanoid } from 'nanoid';
 import { useDispatch} from 'react-redux';
 import { register } from 'redux/user/operation';
-import {Box} from "@mui/material";
-// TextField
+import {Box , TextField, Button} from "@mui/material";
+
 export default function RegisterPage() {
-    
     const dispatch = useDispatch();
-    const inputIdName = nanoid();
-    const inputIdEmail = nanoid();
-    const inputIdPassword = nanoid();
+
 
     const onCreateUserAccount = (e) => {
         e.preventDefault();
@@ -27,36 +23,45 @@ export default function RegisterPage() {
    
     return (
     <>
-    <Box style={{
-      marginTop: 20,
+      <Box style={{  
+      marginTop: 40,
       marginLeft: "auto",
       marginRight: "auto",
-      width: 400
-            }}>
-            <form onSubmit={onCreateUserAccount}>
-                <label htmlFor={inputIdName}>Username</label>
-                <input
-                    id={inputIdName}
-                    type="text"
-                    name="name"
-                   />
-                <br />
-                <label htmlFor={inputIdEmail}>Email</label>
-                <input
-                    id={inputIdEmail}
-                    type="email"
-                    name="email"
-                  />
-                <br />
-                <label htmlFor={inputIdPassword}>Password</label>
-                <input
-                    id={inputIdPassword}
-                    type="password"
-                    name="password"
-                 />
-                <br />
-                <button type="submit">Register</button>
-            </form>
+      width: 450
+    }}>
+    <form onSubmit={onCreateUserAccount}>
+        <TextField
+        style={{marginBottom: 15}}    
+        id="outlined-basic"
+        fullWidth
+        label="Username"
+        variant="outlined"    
+        type="text"
+        name="name"
+        />
+        <TextField
+        style={{marginBottom: 15}}    
+        id="outlined-basic"
+        fullWidth
+        label="Email"    
+        type="email"
+        name="email"
+        />
+        <TextField
+        style={{marginBottom: 15}}    
+        id="outlined-basic"
+        fullWidth    
+        label="Password"    
+        type="password"
+        name="password"
+        />
+        <Button
+        style={{display : "block", margin: "auto" , textTransform: "none"}}        
+        type="submit"
+        variant="contained">
+        Register
+        </Button>
+    </form>
     </Box>
     </>)
 }

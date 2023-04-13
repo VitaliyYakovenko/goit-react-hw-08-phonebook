@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addContacts } from "redux/contacts/operation";
-import { nanoid } from "nanoid";
+import {TextField, Button} from "@mui/material";
 
 
 export default function ContactForm() {
     const contacts = useSelector(state => state.contacts.items);
     const dispatch = useDispatch();
-    const InputIdName = nanoid();
-    const InputIdPhone = nanoid();
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
 
@@ -49,36 +47,40 @@ export default function ContactForm() {
     } 
 
     return (
-           <form  
-            onSubmit={onAddContact}
-            >
-            <label 
-            htmlFor={InputIdName}>Name</label>    
-            <input      
+           <form onSubmit={onAddContact}>
+
+            <TextField
+            style={{marginBottom: 15}}    
             onChange={onInputChange}
             type="text"
+            label="Name"    
             value={name}    
-            name="name"    
-            id={InputIdName}    
+            name="name"
+            fullWidth    
+            id="outlined-basic"                  
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             />
-           <label 
-            htmlFor={InputIdPhone}>Phone</label> 
-            <input
+        
+            <TextField 
             onChange={onInputChange}
+            style={{marginBottom: 15}}    
             type="tel"
+            fullWidth
             value={number}
             name="number"
-            id={InputIdPhone}        
+            label="Number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
              />
-            <br/>
-            <button
-            type="submit">Add contact</button>
+            <Button
+            style={{textTransform: "none", margin: "auto", display:"block"}}    
+            variant="contained"    
+            type="submit">
+            Add contact
+            </Button>
         </form>
     )
 }

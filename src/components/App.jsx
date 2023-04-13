@@ -30,7 +30,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="/register"
         element={<RestrictedRoute
-        edirectTo="/contacts"
+        redirectTo="/contacts"
         component={<RegisterPage />} />
         }/>
         <Route path="/login"

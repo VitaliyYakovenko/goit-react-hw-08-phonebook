@@ -3,6 +3,7 @@ import { fetchContacts } from 'redux/contacts/operation';
 import { useEffect } from 'react';
 import Loader from "../Loader/Loader"
 import { deleteContacts } from 'redux/contacts/operation';
+import {List, ListItem ,Typography,Button,Box} from "@mui/material";
 
 
 export default function ContactList() {
@@ -38,20 +39,38 @@ export default function ContactList() {
 
   if (!isLoading) {
     return (
-          <ul>
+          <List style={{ width: '100%',backgroundColor: 'rgb(231, 235, 240)'}}>
             {visibleContacts.map(contact => (
-          <li
-          key={contact.id}>
-          <span>{contact.name}</span>
-          <span>{contact.number}</span>   
-          <button
-          onClick={() => dispatch(deleteContacts(contact.id))}>
-          Delete
-          </button>       
-          </li>
+            <ListItem
+            style={{display:"flex", alignItems:"center"}}    
+            key={contact.id}>
+           <Typography
+            style={{marginRight: 20}}            
+            typography="h6"
+            color="#1976d2"
+            component="span">
+            {contact.name}
+            </Typography>
+                
+            <Box style={{marginLeft:"auto"}}>
+            <Typography
+            style={{marginRight: 20}}            
+            typography="h6"
+            color="#1976d2"
+            component="span">
+            {contact.number}
+            </Typography>
+                
+           <Button
+            variant="contained"
+            style={{backgroundColor: "darkBlue"}}      
+            onClick={() => dispatch(deleteContacts(contact.id))}>
+            Delete
+            </Button>
+            </Box>    
+           </ListItem>
           ))}
-          </ul>
+          </List>
       )
   }
 }
-

@@ -42,7 +42,7 @@ export default function Layout() {
     </AppBar>
             
         <main>
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
         <Outlet />
         </Suspense>   
         </main>  

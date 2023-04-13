@@ -10,7 +10,3 @@ export function warningMessageLogin() {
     Notiflix.Notify.failure("Email or password entered incorrectly");
 };
 
-
-// // export function successMessage(name) {
-// //     Notiflix.Notify.success(`Welcome, ${name}!`);
-// // }

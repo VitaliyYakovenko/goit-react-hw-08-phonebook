@@ -1,12 +1,8 @@
-import { nanoid } from "nanoid"
 import { useDispatch} from "react-redux";
 import { logIn } from "redux/user/operation";
-
+import {Box , TextField, Button} from "@mui/material";
 
 export default function LoginPage() {
-  
-    const inputIdEmail = nanoid();
-    const inputIdPassword = nanoid();
     const dispatch = useDispatch();
 
     const onGetUserAccount = (e) => {
@@ -21,25 +17,39 @@ export default function LoginPage() {
     }
  
 
-
-
-    return (<>
-        <form onSubmit={onGetUserAccount}>
-        <label htmlFor={inputIdEmail}>Email</label>    
-        <input
-        id={inputIdEmail}
-        name="email"        
-        type="email">        
-        </input>
-        <br/>    
-        <label htmlFor={inputIdPassword}>Password</label>    
-        <input
-        id={inputIdPassword}
-        name="password"        
-        type="password">
-        </input>
-        <br/>       
-    <button type="submit">Log In</button>        
+    return (
+    <Box style={{  
+            marginTop: 40,
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: 450
+             }}>
+            
+    <form onSubmit={onGetUserAccount}>
+            
+            <TextField
+            style={{marginBottom: 15}}    
+            id="outlined-basic"
+            fullWidth
+            label="Email"     
+            name="email"
+            type="email"        
+            /> 
+            <TextField
+            style={{marginBottom: 15}}            
+            id="outlined-basic"
+            fullWidth    
+            label="Password" 
+            name="password"        
+            type="password"
+            />
+               
+            <Button
+            style={{display : "block", margin: "auto", textTransform: "none"}}
+            variant="contained"
+            type="submit">
+            Log In
+            </Button>        
     </form>    
-    </>)
+    </Box>)
 }

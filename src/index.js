@@ -23,18 +23,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
 
-// alex666
-// alex666@gmail.com
-// alex666
-
-//alex1111
-//alex1111@gmail.com
-//alex1111
-
-//alex2222
-//alex2222@gmail.com
-//alex2222
-
-//hello555
-//hello555@gmail.com 
-//hello5555
